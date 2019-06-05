@@ -1,0 +1,35 @@
+FUNCTION Constructor (Customer's wallet address, Pizza Inc's wallet address, customer's geo location, Pizza's price )
+
+BEGIN
+Initialize all required variables
+END
+FUNCTION Monitor_Tempature ( Temperature )
+BEGIN
+      IF (Temperature < 40)
+      BEGIN
+         Increment the tempuature_violation by 1
+      END
+END
+
+FUNCTION Monitor_GPS ( Delivery_person's_GPS_Location )
+BEGIN
+    IF (Delivery_person's_GPS_Location INSIDE customer's geo fence)
+    BEGIN
+        Check the time to take the delivery
+        Check number of temperature violations
+        IF(No violations)
+        BEGIN
+            Send the Pizza's price to the Pizza Inc
+        END
+        ELSE IF(temperature violation < 5C)
+        BEGIN
+            Send the Pizza's price * 0.85 to Pizza Inc's wallet address
+            Send the Pizza's price * 0.15 to Customer's wallet address
+        END
+        ELSE
+        BEGIN
+            Reject the delivery
+            Send the Pizza's price to Customer's wallet address
+        END
+    END
+END
